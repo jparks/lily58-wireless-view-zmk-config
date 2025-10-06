@@ -51,11 +51,11 @@
 
             display-name = "Lower";
             bindings = <
-&kp GRAVE   &kp F1    &kp F2        &kp F3        &kp F4        &kp F5                          &kp F6     &kp F7     &kp F8           &kp F9    &kp F10   &kp trans
-&bt BT_NXT  &kp trans &kp UP_ARROW  &kp trans        &kp trans        &kp trans                          &kp trans     &kp trans     &kp trans           &kp trans   &kp trans   &kp trans
-&kp GRAVE   &kp EXCL  &kp AT        &kp HASH      &kp DOLLAR    &kp PRCNT                       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp TILDE
-&trans      &trans    &trans        &trans        &trans        &trans        &trans    &trans  &trans     &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC  &kp PIPE
-                                    &trans        &trans        &trans        &trans    &trans  &trans     &trans     &trans
+&kp GRAVE   &kp F1          &kp F2          &kp F3           &kp F4     &kp F5                    &kp F6     &kp F7     &kp F8            &kp F9            &kp F10  &trans
+&bt BT_NXT  &trans          &kp UP_ARROW    &trans           &kp LC(R)  &trans                    &trans     &trans     &kp LS(LC(I))     &trans            &trans   &trans
+&trans      &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans     &trans                    &trans     &trans     &trans            &trans            &trans   &trans
+&trans      &kp LC(Z)       &kp LC(X)       &kp LC(C)        &kp LC(V)  &trans  &trans    &trans  &kp LC(N)  &kp MINUS  &kp LEFT_BRACKET  &kp LEFT_BRACKET  &trans   &trans
+                                            &trans           &trans     &trans  &trans    &trans  &trans     &trans     &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -71,11 +71,11 @@
 
             display-name = "Raise";
             bindings = <
-&trans  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                    &kp F6    &kp F7          &kp F8          &kp F9     &kp F10  &kp F11
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans    &kp PAGE_UP     &kp UP_ARROW    &trans     &trans   &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans                    &kp HOME  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &kp END  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &kp PAGE_DOWN   &trans          &trans     &trans   &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans    &trans          &trans
+&trans  &kp K_MUTE  &kp C_VOL_DN   &kp C_VOL_UP  &kp K_PLAY_PAUSE  &trans                    &trans          &trans          &trans          &trans           &trans  &kp F11
+&trans  &trans      &kp PAGE_UP    &trans        &trans            &trans                    &trans          &trans          &trans          &trans           &trans  &kp F12
+&trans  &kp HOME    &kp PAGE_DOWN  &kp END       &trans            &trans                    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT        &trans  &trans
+&trans  &trans      &trans         &trans        &trans            &trans  &trans    &trans  &trans          &kp UNDER       &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans  &trans
+                                   &trans        &trans            &trans  &trans    &trans  &trans          &trans          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
