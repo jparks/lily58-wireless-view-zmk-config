@@ -17,7 +17,44 @@
     require-prior-idle-ms = <125>;
 };
 
+#define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 42
+#define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 43 44 45 46 47 48 49
+#define THUMBS_L 50 51 52 53
+#define THUMBS_R 54 55 56 57
+
 / {
+    behaviors {
+        hml: homerow_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_LEFT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+
+            hold-trigger-key-positions = <KEYS_R THUMBS_L THUMBS_R>;
+            hold-trigger-on-release;
+        };
+
+        hmr: homerow_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS_RIGHT";
+            #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
+
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <200>;
+            require-prior-idle-ms = <125>;
+
+            hold-trigger-key-positions = <KEYS_L THUMBS_L THUMBS_R>;
+            hold-trigger-on-release;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -25,7 +62,7 @@
             // ------------------------------------------------------------------------------------------------------------
             // |  ESC  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |  BSPC |
             // |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |   =   |
-            // | SHIFT |  A  |  S  |  D   | SFT F|  G   |                   |  H   | SFT J |  K    |  L   |   ;   |   '   |
+            // | SHIFT |  A  |  S  |  D   | HML F|  G   |                   |  H   | HMR J |  K    |  L   |   ;   |   '   |
             // |  CTRL |  Z  |  X  |  C   |  V   |  B   | SLCK   |  | DEL   |  N   |  M    |  ,    |  .   |   /   |   \   |
             //                     | ALT  | GUI  | LOWER|  SPACE |  | trans | RAISE| GUI   | none  |
 
@@ -33,7 +70,7 @@
             bindings = <
 &kp ESC           &kp N1  &kp N2  &kp N3        &kp N4            &kp N5                                &kp N6  &kp N7            &kp N8     &kp N9   &kp N0    &kp BACKSPACE
 &kp TAB           &kp Q   &kp W   &kp E         &kp R             &kp T                                 &kp Y   &kp U             &kp I      &kp O    &kp P     &kp EQUAL
-&kp LEFT_SHIFT    &kp A   &kp S   &kp D         &mt LEFT_SHIFT F  &kp G                                 &kp H   &mt LEFT_SHIFT J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LEFT_SHIFT    &kp A   &kp S   &kp D         &hml LEFT_GUI F   &kp G                                 &kp H   &hmr LEFT_GUI J   &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LEFT_CONTROL  &kp Z   &kp X   &kp C         &kp V             &kp B   &kp SCROLLLOCK    &kp DELETE  &kp N   &kp M             &kp COMMA  &kp DOT  &kp FSLH  &kp BACKSLASH
                                   &kp LEFT_ALT  &kp LEFT_GUI      &mo 1   &kp SPACE         &trans      &mo 2   &kp RIGHT_GUI     &none
             >;
